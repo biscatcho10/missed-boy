@@ -6,7 +6,7 @@ namespace Homeless.HomeLess.Forms
     using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
+    using System.Collections.Generic;   
     using System.IO;
 
     [FormScript("HomeLess.Country")]
@@ -14,5 +14,6 @@ namespace Homeless.HomeLess.Forms
     public class CountryForm
     {
         public String Name { get; set; }
+        public String Photo { get; set; }
     }
 }

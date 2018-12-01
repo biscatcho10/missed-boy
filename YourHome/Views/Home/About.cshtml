@@ -1,0 +1,69 @@
+﻿
+@using System.Collections
+@model  List<AbotutU>
+ 
+
+
+
+
+<section class="works">
+    <div class="container">
+        <div class="row">
+            <div class="title text-center">
+                <h4> أعضاء الفريق</h4>
+                <p>سوف تجد ما تبحث عنه هنا</p>
+            </div>
+            <div class="owl-carousel">
+                @foreach (var item in Model)
+                {
+
+                <div class="item">
+                    <img src="http://localhost:24548/upload/@item.Photo" class="img-responsive" style="height: 250px;width:100%;">
+                    <div class="proj">
+                        <div class="project-overlay" style="height:70%">
+                            <h4>
+                                <a href="HospitalDetails.aspx?id=ئئ"> @item.Name</a><br />
+                                <a href="HospitalDetails.aspx?id=ئئ"> @item.Mobile</a>  <br />
+                                <a href="HospitalDetails.aspx?id=ئئ"> @item.Fb</a>      <br />
+                                <a href="HospitalDetails.aspx?id=ئئ"> @item.Twitter</a>      <br />
+                                <a href="HospitalDetails.aspx?id=ئئ"> @item.Instgram</a>    <br />
+                            </h4> 
+                            <p class="project-cat"> @item.Description</p>
+                            <a href="HospitalDetails.aspx?id=ئئ" class="project-view"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="log">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="title text-center">
+                    <h4>هيا نبدأ</h4>
+                    <p>التسجيل</p>
+                </div>
+                <div class="all">
+                    <p>هيا سجل في الموقع لتتمتع بكل الخصائص التي سوف تحتاجها للحجز في المستشفي التي تريدها</p>
+                    <a href="Login.aspx">تسجيل الدخول</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

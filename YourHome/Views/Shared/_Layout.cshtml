@@ -1,0 +1,121 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>دليل المفقودين</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/invalid.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/flexslider.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/flaticon.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/media.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/hover-min.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/libs/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/assets/fonts/HelveticaNeue/HelveticaNeue.css" type="text/css">
+    <script type="text/javascript" src="~/assets/libs/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="~/assets/libs/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/assets/libs/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="~/assets/libs/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/assets/libs/js/wow.min.js"></script>
+    <script type="text/javascript" src="~/assets/libs/js/js.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(window).load(function () {
+            $('.flexslider').flexslider();
+        });
+    </script>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <style>
+        .header-bottom .mybutton {
+            font-size: 12pt;
+            background-color: #0098db;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px 5px;
+            color: #fff;
+            margin-right: 7px;
+            -webkit-transition: All 200ms ease-in;
+            -moz-transition: All 200ms ease-in;
+            -o-transition: All 200ms ease-in;
+            -ms-transition: All 200ms ease-in;
+            transition: All 200ms ease-in;
+        }
+    </style>
+</head>
+<body>
+    <section class="header-up" style="background: url(~/assets/images/02.jpg)center;">
+        <div class="hed">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-3 col-xs-12">
+                        <div class="logo">
+                            <h2><a href="/Home/index"><span>دليل </span>المفقودين</a></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 col-xs-12">
+                        <div class="menu">
+                            <ul class="list-unstyled">
+                                <li><a href="/Home/index"><i class="fa fa-home fa-lg"></i>الرئيسيه</a></li>
+                                <li><a href="/Home/About"><i class="fa fa-user fa-lg"></i>عن الفريق</a></li>
+                                <li><a href="/Home/Contact"><i class="fa fa-user fa-lg"></i>الاتصال والشكاوى</a></li>
+                                @Html.Partial("_LoginPartial")
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+   
+        <!-- end .header-up -->
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="~/assets/images/featured-image-6.jpg">
+                    <div class="flex-caption">
+
+                    </div>
+                </li>
+                <li>
+                    <img src="~/assets/images/1170-4.jpg">
+                    <div class="flex-caption">
+
+                    </div>
+                </li>
+                <li>
+                    <img src="~/assets/images/02.jpeg">
+                    <div class="flex-caption">
+
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        @RenderBody()
+        <!--footer-->
+        <section class="footer">
+            <div class=" container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>جميع الحقوق محفوظه لموقع <a href="Home/index">دليل المفقودين</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

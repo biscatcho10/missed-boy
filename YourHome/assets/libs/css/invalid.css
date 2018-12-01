@@ -1,0 +1,44 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import "../../../fonts/HelveticaNeue/HelveticaNeue.css";
+
+
+/* @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);*/
+@font-face
+{
+	font-family: sans_bold;
+	src: url(../../../fonts/DroidKufi-bold.ttf);
+}
+@font-face { font-family: gess; src: url("../../../fonts/GE_SS_Two_Light.otf"); }
+@font-face { font-family: gessm; src: url("../../../fonts/GE SS Text Medium.otf"); }
+
+@font-face
+{
+	font-family: sans_regular;
+	src: url(../../../fonts/DroidKufi-Regular.ttf);
+}
+
+/*@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);*/
+@font-face  {
+    font-family: Dinar;
+    src: url("../../fonts/ge-dinar.eot");
+    src: url("../../fonts/ge-dinar.woff") format("woff"),
+         url("../../fonts/ge-dinar.ttf") format("truetype"),
+         url("../../fonts/ge-dinar.svg#webfontKWmDqtHl") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);*/
+@font-face {
+	font-family: sans_reg;
+	src: url(../../fonts/HelveticaNeueW23-Reg.woff) format('woff'),  url('fonts/HelveticaNeueW23-Reg.ttf') format('truetype'),  url('fonts/HelveticaNeueW23-Reg.svg#HelveticaNeueLTArabic55Roman') format('svg');
+	font-weight: normal;
+	font-style: normal
+}
+
+@font-face {
+
+	font-family: sans_bd;
+	src: url(../../fonts/HelveticaNeueW23-Bd.woff) format('woff'),  url('fonts/HelveticaNeueW23-Bd.ttf') format('truetype'),  url('fonts/HelveticaNeueW23-Bd.svg#HelveticaNeueLTArabic55Roman') format('svg');
+	font-weight: bold
+}

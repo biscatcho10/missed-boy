@@ -1,0 +1,36 @@
+/* MEDIA 1200 */
+@media (min-width: 1024px) and (max-width: 2000px) {
+
+
+}
+/* MEDIA 1024 */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+}
+
+/* END MEDIA 800 */
+@media (min-width: 600px) and (max-width: 800px) {
+    body{
+        overflow-x: visible;
+    }
+
+}
+
+@media (max-width: 600px) {
+    body{
+        overflow-x: visible;
+    }
+    
+}
+
+@media (max-width: 400px) {
+
+}
+
+/*@media only screen and (max-width: 480px) {
+#div {width:100%;float: left;}
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+#div {width:100%;float: left;}
+}*/

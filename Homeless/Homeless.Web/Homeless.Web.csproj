@@ -1895,6 +1895,12 @@
     <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.CityForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <Content Include="Modules\HomeLess\AytamPlaces\AytamPlacesIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\HomeLess\AytamPlaces\AytamPlacesDialog.ts" />
+    <TypeScriptCompile Include="Modules\HomeLess\AytamPlaces\AytamPlacesGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2252,6 +2258,12 @@
     <Compile Include="Modules\HomeLess\City\CityPage.cs" />
     <Compile Include="Modules\HomeLess\City\CityColumns.cs" />
     <Compile Include="Modules\HomeLess\City\CityForm.cs" />
+    <Compile Include="Modules\HomeLess\AytamPlaces\AytamPlacesRow.cs" />
+    <Compile Include="Modules\HomeLess\AytamPlaces\AytamPlacesRepository.cs" />
+    <Compile Include="Modules\HomeLess\AytamPlaces\AytamPlacesEndpoint.cs" />
+    <Compile Include="Modules\HomeLess\AytamPlaces\AytamPlacesPage.cs" />
+    <Compile Include="Modules\HomeLess\AytamPlaces\AytamPlacesColumns.cs" />
+    <Compile Include="Modules\HomeLess\AytamPlaces\AytamPlacesForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

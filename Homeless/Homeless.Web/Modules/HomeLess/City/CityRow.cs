@@ -30,7 +30,7 @@ namespace Homeless.HomeLess.Entities
             set { Fields.Name[this] = value; }
         }
 
-        [LookupEditor(typeof(CountryRow), InplaceAdd = true)]
+        [LookupEditor(typeof(CountryRow), InplaceAdd = true),Required]
         [DisplayName("Country"), ForeignKey("[dbo].[Country]", "id"), LeftJoin("jCountry"), TextualField("CountryName")]
         public Int32? CountryId
         {

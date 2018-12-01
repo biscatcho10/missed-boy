@@ -15,5 +15,6 @@ namespace Homeless.HomeLess.Forms
     {
         public String Name { get; set; }
         public String Description { get; set; }
+        public String Photo { get; set; }
     }
 }

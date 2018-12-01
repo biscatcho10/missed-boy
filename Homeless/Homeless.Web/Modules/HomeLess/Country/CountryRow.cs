@@ -31,6 +31,13 @@ namespace Homeless.HomeLess.Entities
             set { Fields.Name[this] = value; }
         }
 
+        [DisplayName("Photo"), Column("Photo"), Size(50), Required,ImageUploadEditor]
+        public String Photo
+        {
+            get { return Fields.Photo[this]; }
+            set { Fields.Photo[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.Id; }
@@ -52,6 +59,7 @@ namespace Homeless.HomeLess.Entities
         {
             public Int32Field Id;
             public StringField Name;
+            public StringField Photo;
         }
     }
 }

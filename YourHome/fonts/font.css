@@ -1,0 +1,13 @@
+
+@font-face {
+    font-family: 'fontaa';
+    src: url('DroidKufi-Regular.ttf');
+}
+
+a,h1,h2,h3,h4,h5,h6,li,p ,.message .head h2,.pics .head h2,.disc h1 {
+    font-family: "fontaa" !important;
+}
+ strong {
+  font-weight: 600;
+  font-family: Droid Arabic Kufi;
+}

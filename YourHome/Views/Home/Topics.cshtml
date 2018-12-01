@@ -1,0 +1,31 @@
+﻿
+
+@model List<Topic>
+
+
+
+
+<section class="header-bottom">
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="title text-center">
+                <h4>@ViewBag.Category.Name</h4>
+            </div>
+
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <a href="/Home/GetLostTopic/@item.Id">
+                        <img src="http://localhost:24548/upload/@item.MainPhoto" style="width:90%;height:235px" />
+                    </a>
+                </div>
+            } 
+        </div>
+    </div>
+
+
+</section>

@@ -1,0 +1,38 @@
+﻿
+@model List<Country>
+
+
+
+
+
+
+
+
+<section class="header-bottom">
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="title text-center">
+                <h4>اختر البلد</h4>
+                <p>@ViewBag.Category.Name</p>
+            </div>
+
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <a>
+                        <a href="/Home/Topics/@item.Id/@ViewBag.Category.Id">
+                            <img src="http://localhost:24548/upload/@item.Photo" style="width:90%;height:235px;    border-radius: 230px;" />
+                        </a>    <p class="project-cat">@item.Name</p>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+</section>

@@ -16,7 +16,7 @@ namespace Homeless.HomeLess.Entities
     [ModifyPermission("Administration:General")]
     public sealed class TopicsRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Id"), Column("id"), Identity]
+        [DisplayName("Id"), Column("id"), Identity,EditLink]
         public Int32? Id
         {
             get { return Fields.Id[this]; }
@@ -46,7 +46,7 @@ namespace Homeless.HomeLess.Entities
             set { Fields.TopicAddress[this] = value; }
         }
 
-        [DisplayName("Topic Content"), NotNull,Required]
+        [DisplayName("Topic Content"), NotNull,Required,TextAreaEditor]
         public String TopicContent
         {
             get { return Fields.TopicContent[this]; }

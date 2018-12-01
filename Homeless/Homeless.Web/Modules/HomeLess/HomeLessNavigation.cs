@@ -7,3 +7,4 @@ using MyPages = Homeless.HomeLess.Pages;
 [assembly: NavigationLink(int.MaxValue, "HomeLess/Topics", typeof(MyPages.TopicsController), icon: null)]
 [assembly: NavigationLink(int.MaxValue, "HomeLess/Abotut Us", typeof(MyPages.AbotutUsController), icon: null)]
 [assembly: NavigationLink(int.MaxValue, "HomeLess/City", typeof(MyPages.CityController), icon: null)]
+[assembly: NavigationLink(int.MaxValue, "HomeLess/Aytam Places", typeof(MyPages.AytamPlacesController), icon: null)]

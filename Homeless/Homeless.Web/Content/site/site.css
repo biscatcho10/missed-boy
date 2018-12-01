@@ -8078,3 +8078,9 @@ section.content > .s-DataGrid {
 .s-HomeLess-CityDialog .caption {
   width: 150px;
 }
+.s-HomeLess-AytamPlacesDialog > .size {
+  width: 650px;
+}
+.s-HomeLess-AytamPlacesDialog .caption {
+  width: 150px;
+}
