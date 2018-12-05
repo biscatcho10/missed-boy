@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homeless.Web", "Homeless\Homeless.Web\Homeless.Web.csproj", "{E298DC33-D240-4585-AC47-775575246780}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourHome", "YourHome\YourHome.csproj", "{A2FA28E9-9CD6-4B56-A5B2-0DBB7B0DDDE7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E298DC33-D240-4585-AC47-775575246780} = {E298DC33-D240-4585-AC47-775575246780}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

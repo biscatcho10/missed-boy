@@ -81,6 +81,13 @@ namespace Homeless.HomeLess.Entities
             set { Fields.Mail[this] = value; }
         }
 
+        [DisplayName("LostName"),Required,QuickSearch,QuickFilter]
+        public String LostName
+        {
+            get { return Fields.LostName[this]; }
+            set { Fields.LostName[this] = value; }
+        }
+
         [DisplayName("House Address"), Size(50),TextAreaEditor]
         public String HouseAddress
         {
@@ -186,6 +193,7 @@ namespace Homeless.HomeLess.Entities
             public StringField Notes;
             public StringField Mobile;
             public StringField Mail;
+            public StringField LostName;
             public StringField HouseAddress;
             public StringField MobileUserName;
             public StringField AnotherMobilePhone;

@@ -237,6 +237,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\iwaaModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -609,6 +610,7 @@
     <Content Include="Views\Home\Countries.cshtml" />
     <Content Include="Views\Home\Topics.cshtml" />
     <Content Include="Views\Home\GetLostTopic.cshtml" />
+    <Content Include="Views\Home\AllIwaas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

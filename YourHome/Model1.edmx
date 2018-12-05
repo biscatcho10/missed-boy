@@ -29,6 +29,7 @@
           <Property Name="CityId" Type="int" />
           <Property Name="Mail" Type="nvarchar" MaxLength="50" />
           <Property Name="Photos" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -61,7 +62,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Photo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -93,6 +94,7 @@
           <Property Name="AbsenceDate" Type="date" />
           <Property Name="CategoryId" Type="int" />
           <Property Name="CityId" Type="int" />
+          <Property Name="LostName" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_AytamPlaces_City">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
@@ -197,6 +199,7 @@
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Photos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="City" Relationship="Self.FK_AytamPlaces_City" FromRole="AytamPlaces" ToRole="City" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -234,7 +237,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cities" Relationship="Self.FK_City_Country" FromRole="Country" ToRole="City" />
-          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -268,6 +271,7 @@
           <Property Name="CityId" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Topics_Category" FromRole="Topics" ToRole="Category" />
           <NavigationProperty Name="City" Relationship="Self.FK_Topics_City" FromRole="Topics" ToRole="City" />
+          <Property Name="LostName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_AytamPlaces_City">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
@@ -366,6 +370,7 @@
           <EntitySetMapping Name="AytamPlaces">
             <EntityTypeMapping TypeName="HomeLessModel.AytamPlace">
               <MappingFragment StoreEntitySet="AytamPlaces">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
@@ -427,6 +432,7 @@
           <EntitySetMapping Name="Topics">
             <EntityTypeMapping TypeName="HomeLessModel.Topic">
               <MappingFragment StoreEntitySet="Topics">
+                <ScalarProperty Name="LostName" ColumnName="LostName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TopicAddress" ColumnName="TopicAddress" />
                 <ScalarProperty Name="TopicContent" ColumnName="TopicContent" />

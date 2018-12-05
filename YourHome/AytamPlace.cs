@@ -21,7 +21,8 @@ namespace YourHome
         public Nullable<int> CityId { get; set; }
         public string Mail { get; set; }
         public string Photos { get; set; }
-    
+        public string Name { get; set; }
+        public List<string> imagesList { get; set; }
         public virtual City City { get; set; }
     }
 }

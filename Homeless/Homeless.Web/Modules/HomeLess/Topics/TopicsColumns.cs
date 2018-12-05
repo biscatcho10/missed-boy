@@ -16,9 +16,12 @@ namespace Homeless.HomeLess.Columns
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 Id { get; set; }
         public String CategoryName { get; set; }
+        [EditLink]
         public String CityName { get; set; }
         [EditLink]
-        public String TopicAddress { get; set; }
+        public String TopicAddress { get; set; }    
+        [EditLink]
+        public String LostName { get; set; }
         public String TopicContent { get; set; }
         public Boolean IsClosed { get; set; }
         public String Notes { get; set; }

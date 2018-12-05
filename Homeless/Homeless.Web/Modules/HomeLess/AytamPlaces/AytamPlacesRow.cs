@@ -29,11 +29,17 @@ namespace Homeless.HomeLess.Entities
             set { Fields.Mobile[this] = value; }
         }
 
-        [DisplayName("Website")]
+        [DisplayName("Website"), Required]
         public String Website
         {
             get { return Fields.Website[this]; }
             set { Fields.Website[this] = value; }
+        }
+        [DisplayName("Name"),Required]
+        public String Name
+        {
+            get { return Fields.Name[this]; }
+            set { Fields.Name[this] = value; }
         }
 
         [DisplayName("Description")]
@@ -44,20 +50,22 @@ namespace Homeless.HomeLess.Entities
         }
 
         [DisplayName("City Id")]
+        [LookupEditor(typeof(CityRow), InplaceAdd = true)]
+
         public Int32? CityId
         {
             get { return Fields.CityId[this]; }
             set { Fields.CityId[this] = value; }
         }
 
-        [DisplayName("Mail"), Size(50)]
+        [DisplayName("Mail"), Size(50),EmailEditor]
         public String Mail
         {
             get { return Fields.Mail[this]; }
             set { Fields.Mail[this] = value; }
         }
 
-        [DisplayName("Photos")]
+        [DisplayName("Photos"),MultipleImageUploadEditor]
         public String Photos
         {
             get { return Fields.Photos[this]; }
@@ -85,6 +93,7 @@ namespace Homeless.HomeLess.Entities
         {
             public Int32Field Id;
             public StringField Mobile;
+            public StringField Name;
             public StringField Website;
             public StringField Description;
             public Int32Field CityId;

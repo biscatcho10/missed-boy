@@ -19,6 +19,7 @@ namespace Homeless.HomeLess.Forms
         public String TopicContent { get; set; }
         public Boolean IsClosed { get; set; }
         public String Notes { get; set; }
+        public String LostName { get; set; }
         public String Mobile { get; set; }
         public String Mail { get; set; }
         public String HouseAddress { get; set; }

@@ -1,4 +1,101 @@
 ﻿
- 
+@using System.Collections
+@model  Topic
+
+<section class="works">
+    <div class="container">
+        <div class="row">
+            <div class="title text-center">
+                <h4> المعلومات الخاصة بالتائه</h4>
+                <p>سوف تجد ما تبحث عنه هنا</p>
+            </div>
+            <div class="owl-carousel">
+
+                @foreach (var item in ViewBag.images)
+                {
+                    <div class="item">
+                        <img src="http://localhost:24548/upload/@item" style="height:350px" />
+                    </div>
+                }
+
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="log">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="title text-center">
+                    <h4>المعلومات</h4>
+                    <p>ارجوا ان تجد ما تبحث عنه</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p class="project-cat">الاسم :  @Model.LostName</p><br />
+                </div>
+                <div class="col-sm-3">
+                    <p class="project-cat">رقم الهاتف: @Model.Mobile  </p><br />
+
+                </div>
+                <div class="col-sm-3">
+                    <p class="project-cat">رقم هاتف اخر : @Model.MobileUserName   </p>  <br />
+                </div>
+                <div class="col-sm-3">
+                    <p class="project-cat">الايميل : @Model.Mail    </p>  <br />
+                </div>
+                <div class="col-sm-3">
+                    <p class="project-cat">المدينة : @Model.City.Name</p>
+                </div>
+                <div class="col-sm-3">
+                    <p class="project-cat">العنوان : @Model.HouseAddress</p>
+                </div>
+                <div class="col-sm-3">
+                    <p class="project-cat">سبب الغياب: @Model.ResonOfAbsense</p>
+                </div>
+                <div class="col-sm-3">
+                    هل تم ايجاد المريض:
+                    <p class="project-cat"> @Model.IsClosed </p>
+                </div>
+                <div class="col-sm-3">
+
+                    <p class="project-cat">تاريخ الفقد: @Model.AbsenceDate</p>
+                </div> 
+                <div class="col-sm-3">
+                    <p class="project-cat">عنوان الموضوغ: @Model.TopicAddress</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="project-cat">الموضوع: @Model.TopicContent</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="project-cat">ملاحظات: @Model.Notes</p>
+                </div>
+
+
+
+
+
+
+            </div>
+            </div>
+    </div>
+</section>
+
 
 

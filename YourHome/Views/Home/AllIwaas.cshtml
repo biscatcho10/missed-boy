@@ -1,0 +1,50 @@
+﻿
+@model  List<AytamPlace>
+<div class="title text-center">
+    <h4> التنظيمات الخيرية ودار الايواء</h4>
+    <p>سوف تجد ما تبحث عنه هنا</p>
+</div>
+@foreach (var item in Model)
+{
+    <section class="log">
+        <div class="container">
+            <div class="row">
+                <div class="title text-center">
+                    <h4>@item.Name</h4>
+                </div>
+                <div class="owl-carousel">
+                    @foreach (var x in item.imagesList)
+                    {
+                        <div class="item">
+                            <img src="http://localhost:24548/upload/@x" style="height:400px" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="log">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="col-sm-3">
+                        <p class="project-cat">رقم الهاتف: @item.Mobile  </p><br />
+                    </div>
+                    <div class="col-sm-3">
+                        <p class="project-cat">المدينة: @item.City.Name  </p><br />
+                    </div>
+                    <div class="col-sm-3">
+                        <p class="project-cat">الموقع : @item.Website   </p>  <br />
+                    </div>
+                    <div class="col-sm-3">
+                        <p class="project-cat">الوصف :  @item.Description</p><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+}
+

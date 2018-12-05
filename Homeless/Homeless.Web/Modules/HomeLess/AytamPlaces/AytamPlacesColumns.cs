@@ -17,6 +17,8 @@ namespace Homeless.HomeLess.Columns
         public Int32 Id { get; set; }
         [EditLink]
         public String Mobile { get; set; }
+        [EditLink]
+        public String Name { get; set; }
         public String Website { get; set; }
         public String Description { get; set; }
         public Int32 CityId { get; set; }

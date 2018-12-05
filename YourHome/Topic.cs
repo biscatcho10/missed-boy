@@ -30,6 +30,7 @@ namespace YourHome
         public Nullable<System.DateTime> AbsenceDate { get; set; }
         public Nullable<int> CategoryId { get; set; }
         public Nullable<int> CityId { get; set; }
+        public string LostName { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual City City { get; set; }

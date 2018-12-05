@@ -14,6 +14,7 @@ namespace Homeless.HomeLess.Forms
     public class AytamPlacesForm
     {
         public String Mobile { get; set; }
+        public String Name { get; set; }
         public String Website { get; set; }
         public String Description { get; set; }
         public Int32 CityId { get; set; }
