@@ -13,7 +13,7 @@
 
                 @foreach (var item in ViewBag.images)
                 {
-                    <div class="item">
+                    <div class="item wow swing" data-wow-duration="2s" data-wow-delay="1s">
                         <img src="http://localhost:24548/upload/@item" style="height:350px" />
                     </div>
                 }
@@ -41,7 +41,7 @@
 <section class="log">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 wow bounceInUp" data-wow-duration="2s" data-wow-delay="1s">
                 <div class="title text-center">
                     <h4>المعلومات</h4>
                     <p>ارجوا ان تجد ما تبحث عنه</p>
@@ -52,10 +52,9 @@
                 </div>
                 <div class="col-sm-3">
                     <p class="project-cat">رقم الهاتف: @Model.Mobile  </p><br />
-
                 </div>
                 <div class="col-sm-3">
-                    <p class="project-cat">رقم هاتف اخر : @Model.MobileUserName   </p>  <br />
+                    <p class="project-cat">الشفرة الجينية : @Model.DNA   </p>  <br />
                 </div>
                 <div class="col-sm-3">
                     <p class="project-cat">الايميل : @Model.Mail    </p>  <br />
@@ -76,7 +75,7 @@
                 <div class="col-sm-3">
 
                     <p class="project-cat">تاريخ الفقد: @Model.AbsenceDate</p>
-                </div> 
+                </div>
                 <div class="col-sm-3">
                     <p class="project-cat">عنوان الموضوغ: @Model.TopicAddress</p>
                 </div>

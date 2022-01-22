@@ -1,8 +1,8 @@
-﻿
-namespace Homeless.HomeLess {
+﻿namespace Homeless.HomeLess {
     export interface AytamPlacesRow {
         Id?: number;
         Mobile?: string;
+        Name?: string;
         Website?: string;
         Description?: string;
         CityId?: number;
@@ -15,24 +15,16 @@ namespace Homeless.HomeLess {
         export const nameProperty = 'Mobile';
         export const localTextPrefix = 'HomeLess.AytamPlaces';
 
-        export namespace Fields {
-            export declare const Id;
-            export declare const Mobile;
-            export declare const Website;
-            export declare const Description;
-            export declare const CityId;
-            export declare const Mail;
-            export declare const Photos;
+        export declare const enum Fields {
+            Id = "Id",
+            Mobile = "Mobile",
+            Name = "Name",
+            Website = "Website",
+            Description = "Description",
+            CityId = "CityId",
+            Mail = "Mail",
+            Photos = "Photos"
         }
-
-        [
-            'Id',
-            'Mobile',
-            'Website',
-            'Description',
-            'CityId',
-            'Mail',
-            'Photos'
-        ].forEach(x => (<any>Fields)[x] = x);
     }
 }
+

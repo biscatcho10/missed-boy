@@ -46,7 +46,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="CountryId" Type="int" />
+          <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Contactus">
           <Key>
@@ -87,7 +87,7 @@
           <Property Name="Mail" Type="nvarchar" MaxLength="50" />
           <Property Name="HouseAddress" Type="nvarchar(max)" />
           <Property Name="MobileUserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="AnotherMobilePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="DNA" Type="nvarchar(max)" />
           <Property Name="ResonOfAbsense" Type="nvarchar(max)" />
           <Property Name="Photos" Type="nvarchar(max)" />
           <Property Name="MainPhoto" Type="nvarchar(max)" />
@@ -95,6 +95,7 @@
           <Property Name="CategoryId" Type="int" />
           <Property Name="CityId" Type="int" />
           <Property Name="LostName" Type="nvarchar(max)" />
+          <Property Name="CountryId" Type="int" />
         </EntityType>
         <Association Name="FK_AytamPlaces_City">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
@@ -105,18 +106,6 @@
             </Principal>
             <Dependent Role="AytamPlaces">
               <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_City_Country">
-          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
-          <End Role="City" Type="Self.City" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="City">
-              <PropertyRef Name="CountryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -144,6 +133,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Topics_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HomeLessModelStoreContainer">
           <EntitySet Name="AbotutUs" EntityType="Self.AbotutUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AytamPlaces" EntityType="Self.AytamPlaces" Schema="dbo" store:Type="Tables" />
@@ -157,16 +158,16 @@
             <End Role="City" EntitySet="City" />
             <End Role="AytamPlaces" EntitySet="AytamPlaces" />
           </AssociationSet>
-          <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="City" EntitySet="City" />
-          </AssociationSet>
           <AssociationSet Name="FK_Topics_Category" Association="Self.FK_Topics_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
           <AssociationSet Name="FK_Topics_City" Association="Self.FK_Topics_City">
             <End Role="City" EntitySet="City" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topics_Country" Association="Self.FK_Topics_Country">
+            <End Role="Country" EntitySet="Country" />
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
         </EntityContainer>
@@ -198,8 +199,8 @@
           <Property Name="CityId" Type="Int32" />
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Photos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="City" Relationship="Self.FK_AytamPlaces_City" FromRole="AytamPlaces" ToRole="City" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City" Relationship="Self.FK_AytamPlaces_City" FromRole="AytamPlaces" ToRole="City" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -208,8 +209,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Topics" Relationship="Self.FK_Topics_Category" FromRole="Category" ToRole="Topics" />
           <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Topics" Relationship="Self.FK_Topics_Category" FromRole="Category" ToRole="Topics" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -217,9 +218,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CountryId" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AytamPlaces" Relationship="Self.FK_AytamPlaces_City" FromRole="City" ToRole="AytamPlaces" />
-          <NavigationProperty Name="Country" Relationship="Self.FK_City_Country" FromRole="City" ToRole="Country" />
           <NavigationProperty Name="Topics" Relationship="Self.FK_Topics_City" FromRole="City" ToRole="Topics" />
         </EntityType>
         <EntityType Name="Contactu">
@@ -236,8 +236,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Cities" Relationship="Self.FK_City_Country" FromRole="Country" ToRole="City" />
           <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Topics" Relationship="HomeLessModel.FK_Topics_Country" FromRole="Country" ToRole="Topic" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -262,16 +262,18 @@
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HouseAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MobileUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AnotherMobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DNA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ResonOfAbsense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Photos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MainPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AbsenceDate" Type="DateTime" Precision="0" />
           <Property Name="CategoryId" Type="Int32" />
           <Property Name="CityId" Type="Int32" />
+          <Property Name="LostName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Topics_Category" FromRole="Topics" ToRole="Category" />
           <NavigationProperty Name="City" Relationship="Self.FK_Topics_City" FromRole="Topics" ToRole="City" />
-          <Property Name="LostName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Country" Relationship="HomeLessModel.FK_Topics_Country" FromRole="Topic" ToRole="Country" />
         </EntityType>
         <Association Name="FK_AytamPlaces_City">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
@@ -294,18 +296,6 @@
             </Principal>
             <Dependent Role="Topics">
               <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_City_Country">
-          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
-          <End Role="City" Type="Self.City" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="City">
-              <PropertyRef Name="CountryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -338,15 +328,27 @@
             <End Role="Category" EntitySet="Categories" />
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
-          <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
-            <End Role="Country" EntitySet="Countries" />
-            <End Role="City" EntitySet="Cities" />
-          </AssociationSet>
           <AssociationSet Name="FK_Topics_City" Association="Self.FK_Topics_City">
             <End Role="City" EntitySet="Cities" />
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
+          <AssociationSet Name="FK_Topics_Country" Association="HomeLessModel.FK_Topics_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Topic" EntitySet="Topics" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Topics_Country">
+          <End Type="HomeLessModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="HomeLessModel.Topic" Role="Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -370,7 +372,6 @@
           <EntitySetMapping Name="AytamPlaces">
             <EntityTypeMapping TypeName="HomeLessModel.AytamPlace">
               <MappingFragment StoreEntitySet="AytamPlaces">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
@@ -378,16 +379,17 @@
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
                 <ScalarProperty Name="Photos" ColumnName="Photos" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="HomeLessModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -396,7 +398,7 @@
               <MappingFragment StoreEntitySet="City">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -412,9 +414,9 @@
           <EntitySetMapping Name="Countries">
             <EntityTypeMapping TypeName="HomeLessModel.Country">
               <MappingFragment StoreEntitySet="Country">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -432,7 +434,6 @@
           <EntitySetMapping Name="Topics">
             <EntityTypeMapping TypeName="HomeLessModel.Topic">
               <MappingFragment StoreEntitySet="Topics">
-                <ScalarProperty Name="LostName" ColumnName="LostName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TopicAddress" ColumnName="TopicAddress" />
                 <ScalarProperty Name="TopicContent" ColumnName="TopicContent" />
@@ -442,13 +443,15 @@
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
                 <ScalarProperty Name="HouseAddress" ColumnName="HouseAddress" />
                 <ScalarProperty Name="MobileUserName" ColumnName="MobileUserName" />
-                <ScalarProperty Name="AnotherMobilePhone" ColumnName="AnotherMobilePhone" />
+                <ScalarProperty Name="DNA" ColumnName="DNA" />
                 <ScalarProperty Name="ResonOfAbsense" ColumnName="ResonOfAbsense" />
                 <ScalarProperty Name="Photos" ColumnName="Photos" />
                 <ScalarProperty Name="MainPhoto" ColumnName="MainPhoto" />
                 <ScalarProperty Name="AbsenceDate" ColumnName="AbsenceDate" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="LostName" ColumnName="LostName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

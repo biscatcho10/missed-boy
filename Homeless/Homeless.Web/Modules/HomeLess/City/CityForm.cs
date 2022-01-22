@@ -14,6 +14,6 @@ namespace Homeless.HomeLess.Forms
     public class CityForm
     {
         public String Name { get; set; }
-        public Int32 CountryId { get; set; }
+        public String Image { get; set; }
     }
 }

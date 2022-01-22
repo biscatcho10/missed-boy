@@ -14,6 +14,8 @@ namespace YourHome
     
     public partial class AytamPlace
     {
+        public List<string> imagesList;
+
         public int Id { get; set; }
         public string Mobile { get; set; }
         public string Website { get; set; }
@@ -22,7 +24,7 @@ namespace YourHome
         public string Mail { get; set; }
         public string Photos { get; set; }
         public string Name { get; set; }
-        public List<string> imagesList { get; set; }
+    
         public virtual City City { get; set; }
     }
 }

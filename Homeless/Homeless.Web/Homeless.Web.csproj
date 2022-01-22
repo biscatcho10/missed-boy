@@ -985,6 +985,9 @@
     <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AbotutUsColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.CategoryColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1895,12 +1898,18 @@
     <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.CityForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <Content Include="Modules\HomeLess\AytamPlaces\AytamPlacesIndex.cshtml" />
     <TypeScriptCompile Include="Modules\HomeLess\AytamPlaces\AytamPlacesDialog.ts" />
     <TypeScriptCompile Include="Modules\HomeLess\AytamPlaces\AytamPlacesGrid.ts" />
-    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\HomeLess.AytamPlacesForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />

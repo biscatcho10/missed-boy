@@ -1,7 +1,7 @@
 ﻿namespace Homeless.HomeLess {
     export interface CityForm {
         Name: Serenity.StringEditor;
-        CountryId: Serenity.IntegerEditor;
+        Image: Serenity.ImageUploadEditor;
     }
 
     export class CityForm extends Serenity.PrefixedContext {
@@ -16,11 +16,11 @@
 
                 var s = Serenity;
                 var w0 = s.StringEditor;
-                var w1 = s.IntegerEditor;
+                var w1 = s.ImageUploadEditor;
 
                 Q.initFormType(CityForm, [
                     'Name', w0,
-                    'CountryId', w1
+                    'Image', w1
                 ]);
             }
         }

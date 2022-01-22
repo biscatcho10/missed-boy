@@ -17,7 +17,7 @@ namespace YourHome
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Country()
         {
-            this.Cities = new HashSet<City>();
+            this.Topics = new HashSet<Topic>();
         }
     
         public int Id { get; set; }
@@ -25,6 +25,6 @@ namespace YourHome
         public string Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<City> Cities { get; set; }
+        public virtual ICollection<Topic> Topics { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace Homeless.HomeLess.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Category"), ForeignKey("[dbo].[Category]", "id"), LeftJoin("jCategory"), TextualField("CategoryName")]
+        [DisplayName("Category"), Required, ForeignKey("[dbo].[Category]", "id"), LeftJoin("jCategory"), TextualField("CategoryName")]
         [LookupEditor(typeof(CategoryRow), InplaceAdd = true)]
         public Int32? CategoryId
         {
@@ -31,7 +31,16 @@ namespace Homeless.HomeLess.Entities
             set { Fields.CategoryId[this] = value; }
         }
 
-        [DisplayName("City"), NotNull, ForeignKey("[dbo].[City]", "id"), LeftJoin("jCity"), TextualField("CityName")]
+
+        [DisplayName("City"), ForeignKey("[dbo].[Country]", "id"), LeftJoin("jCountry"), TextualField("CountryName"),Required]
+        [LookupEditor(typeof(CountryRow), InplaceAdd = true)]
+        public Int32? CountryId
+        {
+            get { return Fields.CountryId[this]; }
+            set { Fields.CountryId[this] = value; }
+        }
+
+        [DisplayName("Fe2a"), NotNull, ForeignKey("[dbo].[City]", "id"), LeftJoin("jCity"), TextualField("CityName")]
         [LookupEditor(typeof(CityRow), InplaceAdd = true)]
         public Int32? CityId
         {
@@ -102,11 +111,11 @@ namespace Homeless.HomeLess.Entities
             set { Fields.MobileUserName[this] = value; }
         }
 
-        [DisplayName("Another Mobile Phone"), Size(50),QuickSearch,PhoneEditor]
-        public String AnotherMobilePhone
+        [DisplayName("DNA"), Size(50),QuickSearch,PhoneEditor]
+        public String DNA
         {
-            get { return Fields.AnotherMobilePhone[this]; }
-            set { Fields.AnotherMobilePhone[this] = value; }
+            get { return Fields.DNA[this]; }
+            set { Fields.DNA[this] = value; }
         }
 
         [DisplayName("Reson Of Absense"),QuickSearch]
@@ -116,7 +125,7 @@ namespace Homeless.HomeLess.Entities
             set { Fields.ResonOfAbsense[this] = value; }
         }
 
-        [DisplayName("Photos"),MultipleImageUploadEditor]
+        [DisplayName("Photos"),MultipleImageUploadEditor,Required]
         public String Photos
         {
             get { return Fields.Photos[this]; }
@@ -158,12 +167,19 @@ namespace Homeless.HomeLess.Entities
             set { Fields.CityName[this] = value; }
         }
 
-        [DisplayName("City Country Id"), Expression("jCity.[CountryId]")]
-        public Int32? CityCountryId
+        [DisplayName("Fe2at"), Expression("jCountry.[name]"), QuickFilter]
+        public String CountryName
         {
-            get { return Fields.CityCountryId[this]; }
-            set { Fields.CityCountryId[this] = value; }
+            get { return Fields.CountryName[this]; }
+            set { Fields.CountryName[this] = value; }
         }
+
+        //[DisplayName("City Country Id"), Expression("jCity.[CountryId]")]
+        //public Int32? CityCountryId
+        //{
+        //    get { return Fields.CityCountryId[this]; }
+        //    set { Fields.CityCountryId[this] = value; }
+        //}
 
         IIdField IIdRow.IdField
         {
@@ -186,6 +202,7 @@ namespace Homeless.HomeLess.Entities
         {
             public Int32Field Id;
             public Int32Field CategoryId;
+            public Int32Field CountryId;
             public Int32Field CityId;
             public StringField TopicAddress;
             public StringField TopicContent;
@@ -196,7 +213,7 @@ namespace Homeless.HomeLess.Entities
             public StringField LostName;
             public StringField HouseAddress;
             public StringField MobileUserName;
-            public StringField AnotherMobilePhone;
+            public StringField DNA;
             public StringField ResonOfAbsense;
             public StringField Photos;
             public StringField MainPhoto;
@@ -206,7 +223,8 @@ namespace Homeless.HomeLess.Entities
             public StringField CategoryDescription;
 
             public StringField CityName;
-            public Int32Field CityCountryId;
+            public StringField CountryName;
+            //public Int32Field CityCountryId;
         }
     }
 }

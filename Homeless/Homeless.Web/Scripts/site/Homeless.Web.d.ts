@@ -731,22 +731,28 @@ declare namespace Homeless.HomeLess {
     }
 }
 declare namespace Homeless.HomeLess {
-    class AytamPlacesForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
+}
+declare namespace Homeless.HomeLess {
     interface AytamPlacesForm {
         Mobile: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
         Website: Serenity.StringEditor;
         Description: Serenity.StringEditor;
-        CityId: Serenity.IntegerEditor;
-        Mail: Serenity.StringEditor;
-        Photos: Serenity.StringEditor;
+        CityId: Serenity.LookupEditor;
+        Mail: Serenity.EmailEditor;
+        Photos: Serenity.MultipleImageUploadEditor;
+    }
+    class AytamPlacesForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
     }
 }
 declare namespace Homeless.HomeLess {
     interface AytamPlacesRow {
         Id?: number;
         Mobile?: string;
+        Name?: string;
         Website?: string;
         Description?: string;
         CityId?: number;
@@ -757,14 +763,15 @@ declare namespace Homeless.HomeLess {
         const idProperty = "Id";
         const nameProperty = "Mobile";
         const localTextPrefix = "HomeLess.AytamPlaces";
-        namespace Fields {
-            const Id: any;
-            const Mobile: any;
-            const Website: any;
-            const Description: any;
-            const CityId: any;
-            const Mail: any;
-            const Photos: any;
+        const enum Fields {
+            Id = "Id",
+            Mobile = "Mobile",
+            Name = "Name",
+            Website = "Website",
+            Description = "Description",
+            CityId = "CityId",
+            Mail = "Mail",
+            Photos = "Photos"
         }
     }
 }
@@ -776,12 +783,12 @@ declare namespace Homeless.HomeLess {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AytamPlacesRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AytamPlacesRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
+        const enum Methods {
+            Create = "HomeLess/AytamPlaces/Create",
+            Update = "HomeLess/AytamPlaces/Update",
+            Delete = "HomeLess/AytamPlaces/Delete",
+            Retrieve = "HomeLess/AytamPlaces/Retrieve",
+            List = "HomeLess/AytamPlaces/List"
         }
     }
 }
@@ -791,6 +798,7 @@ declare namespace Homeless.HomeLess {
     interface CategoryForm {
         Name: Serenity.StringEditor;
         Description: Serenity.TextAreaEditor;
+        Photo: Serenity.ImageUploadEditor;
     }
     class CategoryForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -803,15 +811,19 @@ declare namespace Homeless.HomeLess {
         Id?: number;
         Name?: string;
         Description?: string;
+        Photo?: string;
     }
     namespace CategoryRow {
         const idProperty = "Id";
         const nameProperty = "Name";
         const localTextPrefix = "HomeLess.Category";
+        const lookupKey = "HomeLess.Category";
+        function getLookup(): Q.Lookup<CategoryRow>;
         const enum Fields {
             Id = "Id",
             Name = "Name",
-            Description = "Description"
+            Description = "Description",
+            Photo = "Photo"
         }
     }
 }
@@ -837,7 +849,7 @@ declare namespace Homeless.HomeLess {
 declare namespace Homeless.HomeLess {
     interface CityForm {
         Name: Serenity.StringEditor;
-        CountryId: Serenity.IntegerEditor;
+        Image: Serenity.ImageUploadEditor;
     }
     class CityForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -849,18 +861,18 @@ declare namespace Homeless.HomeLess {
     interface CityRow {
         Id?: number;
         Name?: string;
-        CountryId?: number;
-        CountryName?: string;
+        Image?: string;
     }
     namespace CityRow {
         const idProperty = "Id";
         const nameProperty = "Name";
         const localTextPrefix = "HomeLess.City";
+        const lookupKey = "HomeLess.City";
+        function getLookup(): Q.Lookup<CityRow>;
         const enum Fields {
             Id = "Id",
             Name = "Name",
-            CountryId = "CountryId",
-            CountryName = "CountryName"
+            Image = "Image"
         }
     }
 }
@@ -933,6 +945,7 @@ declare namespace Homeless.HomeLess {
 declare namespace Homeless.HomeLess {
     interface CountryForm {
         Name: Serenity.StringEditor;
+        Photo: Serenity.ImageUploadEditor;
     }
     class CountryForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -944,14 +957,18 @@ declare namespace Homeless.HomeLess {
     interface CountryRow {
         Id?: number;
         Name?: string;
+        Photo?: string;
     }
     namespace CountryRow {
         const idProperty = "Id";
         const nameProperty = "Name";
         const localTextPrefix = "HomeLess.Country";
+        const lookupKey = "HomeLess.Country";
+        function getLookup(): Q.Lookup<CountryRow>;
         const enum Fields {
             Id = "Id",
-            Name = "Name"
+            Name = "Name",
+            Photo = "Photo"
         }
     }
 }
@@ -976,20 +993,22 @@ declare namespace Homeless.HomeLess {
 }
 declare namespace Homeless.HomeLess {
     interface TopicsForm {
-        CategoryId: Serenity.IntegerEditor;
-        CityId: Serenity.IntegerEditor;
+        CategoryId: Serenity.LookupEditor;
+        CityId: Serenity.LookupEditor;
+        CountryId: Serenity.LookupEditor;
         TopicAddress: Serenity.StringEditor;
-        TopicContent: Serenity.StringEditor;
+        TopicContent: Serenity.TextAreaEditor;
         IsClosed: Serenity.BooleanEditor;
-        Notes: Serenity.StringEditor;
-        Mobile: Serenity.StringEditor;
-        Mail: Serenity.StringEditor;
-        HouseAddress: Serenity.StringEditor;
+        Notes: Serenity.TextAreaEditor;
+        LostName: Serenity.StringEditor;
+        Mobile: Northwind.PhoneEditor;
+        Mail: Serenity.EmailEditor;
+        HouseAddress: Serenity.TextAreaEditor;
         MobileUserName: Serenity.StringEditor;
-        AnotherMobilePhone: Serenity.StringEditor;
+        DNA: Northwind.PhoneEditor;
         ResonOfAbsense: Serenity.StringEditor;
-        Photos: Serenity.StringEditor;
-        MainPhoto: Serenity.StringEditor;
+        Photos: Serenity.MultipleImageUploadEditor;
+        MainPhoto: Serenity.ImageUploadEditor;
         AbsenceDate: Serenity.DateEditor;
     }
     class TopicsForm extends Serenity.PrefixedContext {
@@ -1002,6 +1021,7 @@ declare namespace Homeless.HomeLess {
     interface TopicsRow {
         Id?: number;
         CategoryId?: number;
+        CountryId?: number;
         CityId?: number;
         TopicAddress?: string;
         TopicContent?: string;
@@ -1009,9 +1029,10 @@ declare namespace Homeless.HomeLess {
         Notes?: string;
         Mobile?: string;
         Mail?: string;
+        LostName?: string;
         HouseAddress?: string;
         MobileUserName?: string;
-        AnotherMobilePhone?: string;
+        DNA?: string;
         ResonOfAbsense?: string;
         Photos?: string;
         MainPhoto?: string;
@@ -1019,6 +1040,7 @@ declare namespace Homeless.HomeLess {
         CategoryName?: string;
         CategoryDescription?: string;
         CityName?: string;
+        CountryName?: string;
         CityCountryId?: number;
     }
     namespace TopicsRow {
@@ -1028,6 +1050,7 @@ declare namespace Homeless.HomeLess {
         const enum Fields {
             Id = "Id",
             CategoryId = "CategoryId",
+            CountryId = "CountryId",
             CityId = "CityId",
             TopicAddress = "TopicAddress",
             TopicContent = "TopicContent",
@@ -1035,9 +1058,10 @@ declare namespace Homeless.HomeLess {
             Notes = "Notes",
             Mobile = "Mobile",
             Mail = "Mail",
+            LostName = "LostName",
             HouseAddress = "HouseAddress",
             MobileUserName = "MobileUserName",
-            AnotherMobilePhone = "AnotherMobilePhone",
+            DNA = "DNA",
             ResonOfAbsense = "ResonOfAbsense",
             Photos = "Photos",
             MainPhoto = "MainPhoto",
@@ -1045,6 +1069,7 @@ declare namespace Homeless.HomeLess {
             CategoryName = "CategoryName",
             CategoryDescription = "CategoryDescription",
             CityName = "CityName",
+            CountryName = "CountryName",
             CityCountryId = "CityCountryId"
         }
     }

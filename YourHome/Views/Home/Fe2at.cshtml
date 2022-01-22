@@ -1,0 +1,41 @@
+﻿
+@model List<City>
+
+
+
+
+
+
+
+
+<section class="header-bottom">
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="title text-center">
+                <h4>اختر الفئة</h4>
+                <p>@ViewBag.Category.Name</p>
+            </div>
+
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 wow heartBeat" data-wow-duration="2s" data-wow-delay="1s">
+                    <a>
+                        <a href="/Home/Topics/@ViewBag.Country.Id/@ViewBag.Category.Id/@item.Id">
+                            <img src="http://localhost:24548/upload/@item.Image" style="width:90%;height:235px;    border-radius: 230px;" />
+                        </a>    <p class="project-cat">@item.Name</p>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+</section>
+
+
+@*/Home/Topics/@item.Id/@ViewBag.Category.Id*@

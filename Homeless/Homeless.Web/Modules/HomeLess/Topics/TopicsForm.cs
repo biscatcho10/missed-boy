@@ -15,6 +15,7 @@ namespace Homeless.HomeLess.Forms
     {
         public Int32 CategoryId { get; set; }
         public Int32 CityId { get; set; }
+        public Int32 CountryId { get; set; }
         public String TopicAddress { get; set; }
         public String TopicContent { get; set; }
         public Boolean IsClosed { get; set; }
@@ -24,7 +25,7 @@ namespace Homeless.HomeLess.Forms
         public String Mail { get; set; }
         public String HouseAddress { get; set; }
         public String MobileUserName { get; set; }
-        public String AnotherMobilePhone { get; set; }
+        public String DNA { get; set; }
         public String ResonOfAbsense { get; set; }
         public String Photos { get; set; }
         public String MainPhoto { get; set; }

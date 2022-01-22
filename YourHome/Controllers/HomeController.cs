@@ -30,17 +30,47 @@ namespace YourHome.Controllers
             ViewBag.Category = db.Categories.SingleOrDefault(e => e.Id == Id);
             return View(Countries);
         }
+        public ActionResult Fe2at(int Id /*id is the cityId that is countryId*/, int CategoryId)
+        {
+            // city is fe2a
+            List<City> fe2at = db.Cities.ToList();
+            ViewBag.Category = db.Categories.SingleOrDefault(e => e.Id == CategoryId);
+            ViewBag.Country = db.Countries.SingleOrDefault(e => e.Id == Id);
+            return View(fe2at);
+        }
+        public ActionResult ContactPost(Contactu model)
+        {
+            db.Contactus.Add(new Contactu { Mail = model.Mail, MessageContent = model.MessageContent });
+            db.SaveChanges();
+            return View("Contact");
+        }
 
-        public ActionResult Topics(int Id, int CategoryId)
+
+        //id is countryId
+        public ActionResult Topics(int Id, int CategoryId, int fe2aId/*fe2a is the cityId*/)
         {
             ViewBag.Category = db.Categories.SingleOrDefault(e => e.Id == CategoryId);
-            var topics = db.Topics.Include("City").Where(e => e.City.CountryId == Id && e.CategoryId == CategoryId).ToList();
+            ViewBag.Country = db.Countries.SingleOrDefault(e => e.Id == Id);
+            ViewBag.fe2a = fe2aId;
+            var topics = db.Topics.Include("City").Where(e => e.CountryId == Id && e.CategoryId == CategoryId&& e.CityId ==fe2aId).ToList();
             return View(topics);
         }
+
+
+        public ActionResult Topicss(int Id, int CategoryId, int fe2aId,string s)
+        {
+            ViewBag.Category = db.Categories.SingleOrDefault(e => e.Id == CategoryId);
+            ViewBag.Country = db.Countries.SingleOrDefault(e => e.Id == Id);
+            ViewBag.fe2a = Id;
+            var topics = db.Topics.Include("City").Where(e => e.CountryId == Id && e.CategoryId == CategoryId&& e.CityId ==fe2aId &&e.DNA == s).ToList();
+            return View("Topics", topics);
+        }
+
+
         public ActionResult AllIwaas()
         {
             var places = db.AytamPlaces.Include("City").ToList();
-          
+
             foreach (var item in places)
             {
                 var arr = JArray.Parse(item.Photos).ToList();
@@ -53,11 +83,10 @@ namespace YourHome.Controllers
                 item.imagesList = imagesList;
             }
 
-
-
-
             return View(places);
         }
+
+
         public ActionResult GetLostTopic(int Id)
         {
             var topic = db.Topics.Include("City").SingleOrDefault(e => e.Id == Id);
@@ -72,11 +101,18 @@ namespace YourHome.Controllers
             return View(topic);
         }
 
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+    }
+
+    class CityFe2aVM
+    {
+        public int cityId { get; set; }
+        public int fe2aId { get; set; }
     }
 }

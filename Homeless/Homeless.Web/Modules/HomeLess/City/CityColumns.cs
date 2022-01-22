@@ -17,6 +17,6 @@ namespace Homeless.HomeLess.Columns
         public Int32 Id { get; set; }
         [EditLink]
         public String Name { get; set; }
-        public String CountryName { get; set; }
+        public String Image { get; set; }
     }
 }

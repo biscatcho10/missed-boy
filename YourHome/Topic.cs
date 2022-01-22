@@ -23,7 +23,7 @@ namespace YourHome
         public string Mail { get; set; }
         public string HouseAddress { get; set; }
         public string MobileUserName { get; set; }
-        public string AnotherMobilePhone { get; set; }
+        public string DNA { get; set; }
         public string ResonOfAbsense { get; set; }
         public string Photos { get; set; }
         public string MainPhoto { get; set; }
@@ -31,8 +31,10 @@ namespace YourHome
         public Nullable<int> CategoryId { get; set; }
         public Nullable<int> CityId { get; set; }
         public string LostName { get; set; }
+        public Nullable<int> CountryId { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual City City { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

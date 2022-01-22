@@ -30,20 +30,13 @@ namespace Homeless.HomeLess.Entities
             set { Fields.Name[this] = value; }
         }
 
-        [LookupEditor(typeof(CountryRow), InplaceAdd = true),Required]
-        [DisplayName("Country"), ForeignKey("[dbo].[Country]", "id"), LeftJoin("jCountry"), TextualField("CountryName")]
-        public Int32? CountryId
+        [DisplayName("Image"), Column("Image"),ImageUploadEditor, Size(50), QuickSearch, Required]
+        public String Image
         {
-            get { return Fields.CountryId[this]; }
-            set { Fields.CountryId[this] = value; }
+            get { return Fields.Image[this]; }
+            set { Fields.Image[this] = value; }
         }
 
-        [DisplayName("Country Name"), Expression("jCountry.[name]"),QuickSearch,QuickFilter]
-        public String CountryName
-        {
-            get { return Fields.CountryName[this]; }
-            set { Fields.CountryName[this] = value; }
-        }
 
         IIdField IIdRow.IdField
         {
@@ -66,9 +59,7 @@ namespace Homeless.HomeLess.Entities
         {
             public Int32Field Id;
             public StringField Name;
-            public Int32Field CountryId;
-
-            public StringField CountryName;
+            public StringField Image;
         }
     }
 }

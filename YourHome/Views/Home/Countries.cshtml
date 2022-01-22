@@ -22,9 +22,9 @@
 
             @foreach (var item in Model)
             {
-                <div class="col-md-6">
+                <div class="col-md-6 wow swing" data-wow-duration="2s" data-wow-delay="1s">
                     <a>
-                        <a href="/Home/Topics/@item.Id/@ViewBag.Category.Id">
+                        <a href="/Home/Fe2at/@item.Id/@ViewBag.Category.Id">
                             <img src="http://localhost:24548/upload/@item.Photo" style="width:90%;height:235px;    border-radius: 230px;" />
                         </a>    <p class="project-cat">@item.Name</p>
                     </a>
@@ -36,3 +36,6 @@
 
 
 </section>
+
+
+@*/Home/Topics/@item.Id/@ViewBag.Category.Id*@

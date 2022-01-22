@@ -1,20 +1,57 @@
-﻿@model List<Topic>
+﻿
+
+
+<script>
+    console.log("asdas");
+
+    $(function () {
+                    $('#xx').click(function () {
+                        debugger;
+                        var x = document.getElementById('yy').value;
+                        var link = '/Home/Topicss/' +@ViewBag.Country.Id+'/' +@ViewBag.Category.Id+'/' +@ViewBag.fe2a+'/' + x;
+                        location.href = link;
+                    });
+                });
+</script>
+@model List<Topic>
 <section class="header-bottom">
     <div class="container">
+
         <div class="row">
             <div class="title text-center">
-                <h4>@ViewBag.Category.Name</h4>
+                <h4>@ViewBag.Category.Name - @Model.Count()</h4>
             </div>
+
+            <div class=" row" style="margin-bottom:70px">
+                <div class=" text-center">
+                    <h5>البحث باستخدام الشفرة الجينية</h5>
+                </div>
+                <div class="col-sm-2">
+                    <h5>DNA - الشفرة الجينية:</h5>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="yy" />
+                </div>
+                <div class="col-sm-4">
+                    <input type="file" class="form-control"  />
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-primary" id="xx"> بحث </a>
+                </div>
+            </div>
+
             @foreach (var item in Model)
             {
-            <div class="col-md-6">
-                <a href="/Home/GetLostTopic/@item.Id">
-                    <img src="http://localhost:24548/upload/@item.MainPhoto" style="width:90%;height:235px;border-radius:100%;" />
-                </a>
-                <p class="project-ca" style="margin-right:31%"> @item.LostName - @item.City.Name</p>
-                <p class="project-ca" style="margin-right:31%"> @item.AbsenceDate</p>
-            </div>
-            } 
+                <div class="col-md-6 wow flipInY" data-wow-duration="2s" data-wow-delay="1s" style="margin-bottom:70px">
+                    <a href="/Home/GetLostTopic/@item.Id">
+                        <img src="http://localhost:24548/upload/@item.MainPhoto" style="width:90%;height:235px;border-radius:100%;" />
+                    </a>
+                    <h3 class="project-ca" style="margin-right:31%;"> @item.LostName </h3>
+                    <h3 class="project-ca" style="margin-right:31%"> @item.AbsenceDate</h3>
+                </div>
+            }
         </div>
+
+
     </div>
 </section>

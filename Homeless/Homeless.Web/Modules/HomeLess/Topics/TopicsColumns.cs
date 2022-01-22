@@ -18,6 +18,7 @@ namespace Homeless.HomeLess.Columns
         public String CategoryName { get; set; }
         [EditLink]
         public String CityName { get; set; }
+        public String CountryName { get; set; }
         [EditLink]
         public String TopicAddress { get; set; }    
         [EditLink]
@@ -29,7 +30,7 @@ namespace Homeless.HomeLess.Columns
         public String Mail { get; set; }
         public String HouseAddress { get; set; }
         public String MobileUserName { get; set; }
-        public String AnotherMobilePhone { get; set; }
+        public String DNA { get; set; }
         public String ResonOfAbsense { get; set; }
         public String Photos { get; set; }
         public String MainPhoto { get; set; }

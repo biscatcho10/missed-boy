@@ -294,6 +294,11 @@ namespace MVC
                 public const string AbotutUsIndex = "~/Modules/HomeLess/AbotutUs/AbotutUsIndex.cshtml";
             }
 
+            public static class AytamPlaces
+            {
+                public const string AytamPlacesIndex = "~/Modules/HomeLess/AytamPlaces/AytamPlacesIndex.cshtml";
+            }
+
             public static class Category
             {
                 public const string CategoryIndex = "~/Modules/HomeLess/Category/CategoryIndex.cshtml";

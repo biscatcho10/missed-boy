@@ -23,11 +23,10 @@ namespace YourHome
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> CountryId { get; set; }
+        public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AytamPlace> AytamPlaces { get; set; }
-        public virtual Country Country { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Topic> Topics { get; set; }
     }

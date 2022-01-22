@@ -611,6 +611,7 @@
     <Content Include="Views\Home\Topics.cshtml" />
     <Content Include="Views\Home\GetLostTopic.cshtml" />
     <Content Include="Views\Home\AllIwaas.cshtml" />
+    <Content Include="Views\Home\Fe2at.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
